@@ -1,0 +1,6 @@
+pyyaml
+requests
+black
+flake8
+robotframework
+robotframework-appiumlibrary

@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 88
+target-version = ['py37','py38','py39']
+extend-exclude = '''
+/(
+  # The following are specific to Black, you probably don't want those.
+  # The venv_* folder is the virtual environment folder when running job in Jenkins
+  | .venv_*
+)/
+'''

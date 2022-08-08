@@ -1,0 +1,6 @@
+VSEE_APP_ACCOUNT:
+  EMAIL: vsee.test.mail@gmail.com
+  PASSWORD: 1234qwfp
+CHAT_SESSION:
+  TO: demo@vsee.com
+  MESSAGE: Hi Demo! Cheer Cheer!

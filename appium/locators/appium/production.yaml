@@ -1,0 +1,23 @@
+VSEE_LOGIN_PAGE:
+  EMAIL_INPUT: com.vsee.vsee.beta:id/loginEmailEdit
+  PASSWORD_INPUT: com.vsee.vsee.beta:id/loginPasswordEdit
+  SIGN_IN_BUTTON: com.vsee.vsee.beta:id/loginSignInBut
+MAIN_PAGE:
+  FOOTER_MENU:
+    CHATS: //androidx.appcompat.app.ActionBar.Tab[@content-desc="Chats"]
+    CALLS: //androidx.appcompat.app.ActionBar.Tab[@content-desc="Calls"]
+    CONTACTS: //androidx.appcompat.app.ActionBar.Tab[@content-desc="Contacts"]
+    MORE: //androidx.appcompat.app.ActionBar.Tab[@content-desc="More"]
+CHAT_HOMEPAGE:
+  SEARCH_CHAT_INPUT: com.vsee.vsee.beta:id/chat_list_search_view
+  NEW_CHAT_BUTTON: com.vsee.vsee.beta:id/action_add
+  MESSAGE_CONTENTS: com.vsee.vsee.beta:id/chat_picker_content
+SEARCH_CONTACT_PAGE:
+  SEARCH_INPUT: com.vsee.vsee.beta:id/contact_list_search_view
+  FIRST_RESULT: com.vsee.vsee.beta:id/contact_list_group_name
+  CONTACT_EMAILS: com.vsee.vsee.beta:id/itemContactListEmailView
+  DONE_BUTTON: com.vsee.vsee.beta:id/action_done
+PRIVATE_CHAT_PAGE:
+  MESSAGE_INPUT: com.vsee.vsee.beta:id/chatEditText
+  SEND_BUTTON: com.vsee.vsee.beta:id/chatSendBut
+  BACK_BUTTON: //android.widget.ImageButton[@content-desc="Navigate up"]

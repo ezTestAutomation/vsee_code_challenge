@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.3 on darwin)" generated="20220808 16:58:04.001" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Suites" source="/Users/nguyenptvn/Downloads/vsee_code_challenge-main/appium/Test_Suites">
+<suite id="s1-s1" name="Chat" source="/Users/nguyenptvn/Downloads/vsee_code_challenge-main/appium/Test_Suites/chat.robot">
+<kw name="Open Android Test App" library="common" type="SETUP">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>http://127.0.0.1:4723/wd/hub</arg>
+<arg>automationName=${ANDROID_AUTOMATION_NAME}</arg>
+<arg>deviceName=${ANDROID_DEVICE_NAME}</arg>
+<arg>app=${ANDROID_APP}</arg>
+<arg>platformName=${ANDROID_PLATFORM_NAME}</arg>
+<arg>platformVersion=${ANDROID_PLATFORM_VERSION}</arg>
+<arg>appPackage=${ANDROID_APP_PACKAGE}</arg>
+<arg>appActivity=${appActivity}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<msg timestamp="20220808 16:58:04.075" level="INFO">Could not connect to port 4723 on host 127.0.0.1</msg>
+<msg timestamp="20220808 16:58:04.076" level="INFO">Could not get IP address for host: 127.0.0.1</msg>
+<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a290&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a3e0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg timestamp="20220808 16:58:04.077" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a650&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220808 16:58:04.078" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20220808 16:58:04.077" endtime="20220808 16:58:04.079"/>
+</kw>
+<msg timestamp="20220808 16:58:04.080" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20220808 16:58:04.080" level="FAIL">MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a7a0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
+<status status="FAIL" starttime="20220808 16:58:04.073" endtime="20220808 16:58:04.081"/>
+</kw>
+<status status="FAIL" starttime="20220808 16:58:04.073" endtime="20220808 16:58:04.081"/>
+</kw>
+<test id="s1-s1-t1" name="Test Login And Send A Sample Message" line="7">
+<status status="FAIL" starttime="20220808 16:58:04.081" endtime="20220808 16:58:04.082">Parent suite setup failed:
+MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a7a0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+</test>
+<kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
+<doc>Closes the current application and also close webdriver session.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220808 16:58:04.082" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20220808 16:58:04.082" endtime="20220808 16:58:04.082"/>
+</kw>
+<msg timestamp="20220808 16:58:04.083" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20220808 16:58:04.083" level="FAIL">No application is open</msg>
+<status status="FAIL" starttime="20220808 16:58:04.082" endtime="20220808 16:58:04.083">No application is open</status>
+</kw>
+<status status="FAIL" starttime="20220808 16:58:04.013" endtime="20220808 16:58:04.083">Suite setup failed:
+MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a7a0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))
+
+Also suite teardown failed:
+No application is open</status>
+</suite>
+<status status="FAIL" starttime="20220808 16:58:04.002" endtime="20220808 16:58:04.084"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Suites">Test Suites</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Chat">Test Suites.Chat</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a290&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a3e0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg timestamp="20220808 16:58:04.077" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a650&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg timestamp="20220808 16:58:04.080" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+<msg timestamp="20220808 16:58:04.083" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
+</errors>
+</robot>
