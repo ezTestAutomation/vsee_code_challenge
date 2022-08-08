@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.3 on darwin)" generated="20220808 16:58:04.001" rpa="false" schemaversion="3">
-<suite id="s1" name="Test Suites" source="/Users/nguyenptvn/Downloads/vsee_code_challenge-main/appium/Test_Suites">
-<suite id="s1-s1" name="Chat" source="/Users/nguyenptvn/Downloads/vsee_code_challenge-main/appium/Test_Suites/chat.robot">
+<robot generator="Robot 5.0.1 (Python 3.9.6 on darwin)" generated="20220808 15:53:43.852" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Suites" source="/Users/Apple/Downloads/vsee_code_challenge-main/appium/Test_Suites">
+<suite id="s1-s1" name="Chat" source="/Users/Apple/Downloads/vsee_code_challenge-main/appium/Test_Suites/chat.robot">
 <kw name="Open Android Test App" library="common" type="SETUP">
 <kw name="Open Application" library="AppiumLibrary">
 <arg>http://127.0.0.1:4723/wd/hub</arg>
@@ -18,61 +18,261 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 | *Option*            | *Man.* | *Description*     |
 | remote_url          | Yes    | Appium server url |
 | alias               | no     | alias             |</doc>
-<msg timestamp="20220808 16:58:04.075" level="INFO">Could not connect to port 4723 on host 127.0.0.1</msg>
-<msg timestamp="20220808 16:58:04.076" level="INFO">Could not get IP address for host: 127.0.0.1</msg>
-<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a290&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a3e0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg timestamp="20220808 16:58:04.077" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a650&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<kw name="Capture Page Screenshot" library="AppiumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20220808 16:58:04.078" level="FAIL">No application is open</msg>
-<status status="FAIL" starttime="20220808 16:58:04.077" endtime="20220808 16:58:04.079"/>
+<status status="PASS" starttime="20220808 15:53:44.083" endtime="20220808 15:53:48.999"/>
 </kw>
-<msg timestamp="20220808 16:58:04.080" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg timestamp="20220808 16:58:04.080" level="FAIL">MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a7a0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
-<status status="FAIL" starttime="20220808 16:58:04.073" endtime="20220808 16:58:04.081"/>
-</kw>
-<status status="FAIL" starttime="20220808 16:58:04.073" endtime="20220808 16:58:04.081"/>
+<status status="PASS" starttime="20220808 15:53:44.083" endtime="20220808 15:53:48.999"/>
 </kw>
 <test id="s1-s1-t1" name="Test Login And Send A Sample Message" line="7">
-<status status="FAIL" starttime="20220808 16:58:04.081" endtime="20220808 16:58:04.082">Parent suite setup failed:
-MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a7a0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+<kw name="Wait Until Login Page Showed" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${VSEE_LOGIN_PAGE.EMAIL_INPUT}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:53:49.000" endtime="20220808 15:53:51.578"/>
+</kw>
+<status status="PASS" starttime="20220808 15:53:49.000" endtime="20220808 15:53:51.578"/>
+</kw>
+<kw name="Enter Email Address" library="chat_keyword">
+<arg>${VSEE_APP_ACCOUNT.EMAIL}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${VSEE_LOGIN_PAGE.EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220808 15:53:51.582" level="INFO">Typing text 'vsee.test.mail@gmail.com' into text field 'com.vsee.vsee.beta:id/loginEmailEdit'</msg>
+<status status="PASS" starttime="20220808 15:53:51.579" endtime="20220808 15:53:51.650"/>
+</kw>
+<status status="PASS" starttime="20220808 15:53:51.578" endtime="20220808 15:53:51.650"/>
+</kw>
+<kw name="Enter Password" library="chat_keyword">
+<arg>${VSEE_APP_ACCOUNT.PASSWORD}</arg>
+<kw name="Input Password" library="AppiumLibrary">
+<arg>${VSEE_LOGIN_PAGE.PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into text field identified by `locator`.</doc>
+<msg timestamp="20220808 15:53:51.654" level="INFO">Typing password into text field 'com.vsee.vsee.beta:id/loginPasswordEdit'</msg>
+<status status="PASS" starttime="20220808 15:53:51.652" endtime="20220808 15:53:52.688"/>
+</kw>
+<status status="PASS" starttime="20220808 15:53:51.650" endtime="20220808 15:53:52.688"/>
+</kw>
+<kw name="Click Sign In Button" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${VSEE_LOGIN_PAGE.SIGN_IN_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:53:52.691" level="INFO">Clicking element 'com.vsee.vsee.beta:id/loginSignInBut'.</msg>
+<status status="PASS" starttime="20220808 15:53:52.688" endtime="20220808 15:53:53.531"/>
+</kw>
+<status status="PASS" starttime="20220808 15:53:52.688" endtime="20220808 15:53:53.531"/>
+</kw>
+<kw name="Wait Until Login Successfully" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${MAIN_PAGE.FOOTER_MENU.CHATS}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:53:53.532" endtime="20220808 15:54:00.120"/>
+</kw>
+<status status="PASS" starttime="20220808 15:53:53.532" endtime="20220808 15:54:00.121"/>
+</kw>
+<kw name="Click On Chat Menu Item" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${MAIN_PAGE.FOOTER_MENU.CHATS}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:00.124" level="INFO">Clicking element '//androidx.appcompat.app.ActionBar.Tab[@content-desc="Chats"]'.</msg>
+<status status="PASS" starttime="20220808 15:54:00.121" endtime="20220808 15:54:00.215"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:00.121" endtime="20220808 15:54:00.215"/>
+</kw>
+<kw name="Wait Until It Navigate To Chat Page" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${CHAT_HOMEPAGE.NEW_CHAT_BUTTON}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:54:00.216" endtime="20220808 15:54:01.051"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:00.215" endtime="20220808 15:54:01.052"/>
+</kw>
+<kw name="Click On New Chat Button" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${CHAT_HOMEPAGE.NEW_CHAT_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:01.055" level="INFO">Clicking element 'com.vsee.vsee.beta:id/action_add'.</msg>
+<status status="PASS" starttime="20220808 15:54:01.052" endtime="20220808 15:54:01.141"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:01.052" endtime="20220808 15:54:01.142"/>
+</kw>
+<kw name="Wait Until Search Contact Page Showed" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${SEARCH_CONTACT_PAGE.SEARCH_INPUT}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:54:01.142" endtime="20220808 15:54:01.877"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220808 15:54:03.880" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220808 15:54:01.878" endtime="20220808 15:54:03.880"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:01.142" endtime="20220808 15:54:03.880"/>
+</kw>
+<kw name="Click On Search Contact Input" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${SEARCH_CONTACT_PAGE.SEARCH_INPUT}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:03.883" level="INFO">Clicking element 'com.vsee.vsee.beta:id/contact_list_search_view'.</msg>
+<status status="PASS" starttime="20220808 15:54:03.881" endtime="20220808 15:54:03.960"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:03.880" endtime="20220808 15:54:03.961"/>
+</kw>
+<kw name="Search Contact" library="chat_keyword">
+<arg>${CHAT_SESSION.TO}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${SEARCH_CONTACT_PAGE.SEARCH_INPUT}</arg>
+<arg>${contact_email}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:03.966" level="INFO">Typing text 'demo@vsee.com' into text field 'com.vsee.vsee.beta:id/contact_list_search_view'</msg>
+<status status="PASS" starttime="20220808 15:54:03.962" endtime="20220808 15:54:05.383"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:03.961" endtime="20220808 15:54:05.383"/>
+</kw>
+<kw name="Wait Until Results Showed" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${SEARCH_CONTACT_PAGE.FIRST_RESULT}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:54:05.384" endtime="20220808 15:54:06.095"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:05.384" endtime="20220808 15:54:06.096"/>
+</kw>
+<kw name="Click On First Result" library="chat_keyword">
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>${elements}</var>
+<arg>${SEARCH_CONTACT_PAGE.FIRST_RESULT}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20220808 15:54:06.132" level="INFO">${elements} = [&lt;appium.webdriver.webelement.WebElement (session="2fef2fe2-c939-4d2c-baa9-ef3ede7a491f", element="00000000-0000-002a-ffff-ffff000000b8")&gt;]</msg>
+<status status="PASS" starttime="20220808 15:54:06.096" endtime="20220808 15:54:06.132"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${0}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:06.135" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="2fef2fe2-c939-4d2c-baa9-ef3ede7a491f", element="00000000-0000-002a-ffff-ffff000000b8")&gt;'.</msg>
+<status status="PASS" starttime="20220808 15:54:06.133" endtime="20220808 15:54:06.967"/>
+</kw>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>${elements}</var>
+<arg>${SEARCH_CONTACT_PAGE.CONTACT_EMAILS}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20220808 15:54:06.984" level="INFO">${elements} = [&lt;appium.webdriver.webelement.WebElement (session="2fef2fe2-c939-4d2c-baa9-ef3ede7a491f", element="00000000-0000-002a-ffff-ffff000000bd")&gt;]</msg>
+<status status="PASS" starttime="20220808 15:54:06.968" endtime="20220808 15:54:06.984"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${elements}[${0}]</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:06.986" level="INFO">Clicking element '&lt;appium.webdriver.webelement.WebElement (session="2fef2fe2-c939-4d2c-baa9-ef3ede7a491f", element="00000000-0000-002a-ffff-ffff000000bd")&gt;'.</msg>
+<status status="PASS" starttime="20220808 15:54:06.984" endtime="20220808 15:54:07.614"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:06.096" endtime="20220808 15:54:07.614"/>
+</kw>
+<kw name="Click On Done Button" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${SEARCH_CONTACT_PAGE.DONE_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:07.617" level="INFO">Clicking element 'com.vsee.vsee.beta:id/action_done'.</msg>
+<status status="PASS" starttime="20220808 15:54:07.615" endtime="20220808 15:54:07.684"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:07.614" endtime="20220808 15:54:07.684"/>
+</kw>
+<kw name="Wait Until Private Chat Page Showed" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${PRIVATE_CHAT_PAGE.MESSAGE_INPUT}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:54:07.685" endtime="20220808 15:54:09.077"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:07.684" endtime="20220808 15:54:09.077"/>
+</kw>
+<kw name="Enter Chat Message" library="chat_keyword">
+<arg>${CHAT_SESSION.MESSAGE}</arg>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>${PRIVATE_CHAT_PAGE.MESSAGE_INPUT}</arg>
+<arg>${message}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:09.081" level="INFO">Typing text 'Hi Demo! Cheer Cheer!' into text field 'com.vsee.vsee.beta:id/chatEditText'</msg>
+<status status="PASS" starttime="20220808 15:54:09.078" endtime="20220808 15:54:09.650"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:09.077" endtime="20220808 15:54:09.650"/>
+</kw>
+<kw name="Click Send Message" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PRIVATE_CHAT_PAGE.SEND_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:09.653" level="INFO">Clicking element 'com.vsee.vsee.beta:id/chatSendBut'.</msg>
+<status status="PASS" starttime="20220808 15:54:09.651" endtime="20220808 15:54:10.361"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220808 15:54:10.864" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20220808 15:54:10.361" endtime="20220808 15:54:10.864"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:09.650" endtime="20220808 15:54:10.864"/>
+</kw>
+<kw name="Click Back Button In Private Chat Page" library="chat_keyword">
+<kw name="Click Element" library="AppiumLibrary">
+<arg>${PRIVATE_CHAT_PAGE.BACK_BUTTON}</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220808 15:54:10.867" level="INFO">Clicking element '//android.widget.ImageButton[@content-desc="Navigate up"]'.</msg>
+<status status="PASS" starttime="20220808 15:54:10.865" endtime="20220808 15:54:11.436"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:10.864" endtime="20220808 15:54:11.436"/>
+</kw>
+<kw name="Wait Until Messages Showed" library="chat_keyword">
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${CHAT_HOMEPAGE.MESSAGE_CONTENTS}</arg>
+<arg>timeout=${GLOBAL_TIMEOUT}</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220808 15:54:11.436" endtime="20220808 15:54:12.580"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:11.436" endtime="20220808 15:54:12.580"/>
+</kw>
+<kw name="Latest Message Content Should Be" library="chat_keyword">
+<arg>${CHAT_SESSION.MESSAGE}</arg>
+<kw name="Get Webelements" library="AppiumLibrary">
+<var>${elements}</var>
+<arg>${CHAT_HOMEPAGE.MESSAGE_CONTENTS}</arg>
+<doc>Returns list of [http://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.remote.webelement|WebElement] objects matching ``locator``.</doc>
+<msg timestamp="20220808 15:54:12.605" level="INFO">${elements} = [&lt;appium.webdriver.webelement.WebElement (session="2fef2fe2-c939-4d2c-baa9-ef3ede7a491f", element="00000000-0000-0029-ffff-ffff0000009e")&gt;]</msg>
+<status status="PASS" starttime="20220808 15:54:12.582" endtime="20220808 15:54:12.605"/>
+</kw>
+<kw name="Element Text Should Be" library="AppiumLibrary">
+<arg>${elements}[${0}]</arg>
+<arg>${expected}</arg>
+<doc>Verifies element identified by ``locator`` exactly contains text ``expected``.</doc>
+<msg timestamp="20220808 15:54:12.607" level="INFO">Verifying element '&lt;appium.webdriver.webelement.WebElement (session="2fef2fe2-c939-4d2c-baa9-ef3ede7a491f", element="00000000-0000-0029-ffff-ffff0000009e")&gt;' contains exactly text 'Hi Demo! Cheer Cheer!'.</msg>
+<status status="PASS" starttime="20220808 15:54:12.605" endtime="20220808 15:54:12.627"/>
+</kw>
+<status status="PASS" starttime="20220808 15:54:12.580" endtime="20220808 15:54:12.627"/>
+</kw>
+<status status="PASS" starttime="20220808 15:53:48.999" endtime="20220808 15:54:12.628"/>
 </test>
 <kw name="Close Application" library="AppiumLibrary" type="TEARDOWN">
 <doc>Closes the current application and also close webdriver session.</doc>
-<kw name="Capture Page Screenshot" library="AppiumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20220808 16:58:04.082" level="FAIL">No application is open</msg>
-<status status="FAIL" starttime="20220808 16:58:04.082" endtime="20220808 16:58:04.082"/>
+<status status="PASS" starttime="20220808 15:54:12.629" endtime="20220808 15:54:12.886"/>
 </kw>
-<msg timestamp="20220808 16:58:04.083" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg timestamp="20220808 16:58:04.083" level="FAIL">No application is open</msg>
-<status status="FAIL" starttime="20220808 16:58:04.082" endtime="20220808 16:58:04.083">No application is open</status>
-</kw>
-<status status="FAIL" starttime="20220808 16:58:04.013" endtime="20220808 16:58:04.083">Suite setup failed:
-MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a7a0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))
-
-Also suite teardown failed:
-No application is open</status>
+<status status="PASS" starttime="20220808 15:53:43.878" endtime="20220808 15:54:12.886"/>
 </suite>
-<status status="FAIL" starttime="20220808 16:58:04.002" endtime="20220808 16:58:04.084"/>
+<status status="PASS" starttime="20220808 15:53:43.854" endtime="20220808 15:54:12.888"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Test Suites">Test Suites</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Chat">Test Suites.Chat</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Suites">Test Suites</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Chat">Test Suites.Chat</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a290&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg timestamp="20220808 16:58:04.076" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a3e0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg timestamp="20220808 16:58:04.077" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x106b4a650&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg timestamp="20220808 16:58:04.080" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
-<msg timestamp="20220808 16:58:04.083" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No application is open</msg>
 </errors>
 </robot>
