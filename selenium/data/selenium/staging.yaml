@@ -1,0 +1,10 @@
+BASE_URL: https://mail.google.com
+GMAIL_ACCOUNT:
+  EMAIL: vsee.test.mail@gmail.com
+  PASSWORD: 1234qwfp
+  APP_PASSWORD: xetjzrsnmfzzsqfh
+  GPG_KEY: 3gfcfmdoqfdkmo2kh27qcfkpw3ktxbz7
+COMPOSE_MAIL:
+  TO: vsee.test.mail@gmail.com
+  SUBJECT: Test Send Mail Automatic
+  CONTENT: This mail is send from automated software

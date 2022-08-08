@@ -1,0 +1,8 @@
+pyyaml
+requests
+black
+flake8
+robotframework
+robotframework-seleniumlibrary
+chromedriver-autoinstaller
+pyotp

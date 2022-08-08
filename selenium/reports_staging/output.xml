@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.3 on darwin)" generated="20220808 16:50:19.948" rpa="false" schemaversion="3">
+<suite id="s1" name="Selenium" source="/Users/nguyenptvn/Downloads/vsee_code_challenge-main/selenium/Test_Suites/selenium">
+<suite id="s1-s1" name="Gmail" source="/Users/nguyenptvn/Downloads/vsee_code_challenge-main/selenium/Test_Suites/selenium/gmail.robot">
+<kw name="Navigate To Home Page" library="common" type="SETUP">
+<kw name="Install Chrome Driver" library="EnvHandler">
+<msg timestamp="20220808 16:50:20.846" level="INFO">Downloading chromedriver (104.0.5112.20)...</msg>
+<status status="PASS" starttime="20220808 16:50:20.046" endtime="20220808 16:50:22.001"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220808 16:50:22.002" level="INFO">Opening browser 'Chrome' to base url 'https://mail.google.com'.</msg>
+<status status="PASS" starttime="20220808 16:50:22.001" endtime="20220808 16:50:56.717"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220808 16:50:56.718" endtime="20220808 16:50:57.130"/>
+</kw>
+<status status="PASS" starttime="20220808 16:50:20.046" endtime="20220808 16:50:57.130"/>
+</kw>
+<test id="s1-s1-t1" name="Test Login To Gmail Account And Send An Email Then Verify The Sent Mail" line="8">
+<kw name="Wait Until It Navigate To Email Input Page" library="gmail_keyword">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.EMAIL_INPUT}</arg>
+<arg>timeout=${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220808 16:50:57.132" endtime="20220808 16:50:58.322"/>
+</kw>
+<status status="PASS" starttime="20220808 16:50:57.132" endtime="20220808 16:50:58.322"/>
+</kw>
+<kw name="Enter Email Address" library="gmail_keyword">
+<arg>${GMAIL_ACCOUNT.EMAIL}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.EMAIL_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220808 16:50:58.323" level="INFO">Typing text 'vsee.test.mail@gmail.com' into text field '//input[@type="email"]'.</msg>
+<status status="PASS" starttime="20220808 16:50:58.323" endtime="20220808 16:51:01.518"/>
+</kw>
+<status status="PASS" starttime="20220808 16:50:58.322" endtime="20220808 16:51:01.518"/>
+</kw>
+<kw name="Click Next On Email Input Page" library="gmail_keyword">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.EMAIL_NEXT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:01.519" level="INFO">Clicking element '//div[@id="identifierNext"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:01.518" endtime="20220808 16:51:03.043"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:01.518" endtime="20220808 16:51:03.043"/>
+</kw>
+<kw name="Wait Until It Navigate To Password Input Page" library="gmail_keyword">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.PASSWORD_INPUT}</arg>
+<arg>timeout=${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220808 16:51:03.043" endtime="20220808 16:51:06.045"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:03.043" endtime="20220808 16:51:06.045"/>
+</kw>
+<kw name="Enter Password" library="gmail_keyword">
+<arg>${GMAIL_ACCOUNT.PASSWORD}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:06.047" level="INFO">Typing text '1234qwfp' into text field '//input[@type="password"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:06.046" endtime="20220808 16:51:06.540"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:06.046" endtime="20220808 16:51:06.540"/>
+</kw>
+<kw name="Click Next On Password Input Page" library="gmail_keyword">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.PASSWORD_NEXT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:06.540" level="INFO">Clicking element '//div[@id="passwordNext"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:06.540" endtime="20220808 16:51:07.040"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:06.540" endtime="20220808 16:51:07.040"/>
+</kw>
+<kw name="Get Totp" library="GmailPage">
+<var>${pin}</var>
+<arg>${GMAIL_ACCOUNT.GPG_KEY}</arg>
+<msg timestamp="20220808 16:51:07.042" level="INFO">${pin} = 640796</msg>
+<status status="PASS" starttime="20220808 16:51:07.040" endtime="20220808 16:51:07.042"/>
+</kw>
+<kw name="Enter TOTP Pin And Login" library="gmail_keyword">
+<arg>${pin}</arg>
+<kw name="Disable Capture Page Screenshot On Failure" library="common">
+<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
+<arg>NONE</arg>
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
+<msg timestamp="20220808 16:51:07.043" level="INFO">No keyword will be run on failure.</msg>
+<status status="PASS" starttime="20220808 16:51:07.043" endtime="20220808 16:51:07.043"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:07.043" endtime="20220808 16:51:07.043"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${status}</var>
+<arg>Wait Until It Navigate To TOTP Pin Input</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until It Navigate To TOTP Pin Input" library="gmail_keyword">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.TOTP_PIN_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220808 16:51:07.043" endtime="20220808 16:51:08.553"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:07.043" endtime="20220808 16:51:08.553"/>
+</kw>
+<msg timestamp="20220808 16:51:08.553" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20220808 16:51:07.043" endtime="20220808 16:51:08.553"/>
+</kw>
+<kw name="Enable Capture Page Screenshot On Failure" library="common">
+<kw name="Register Keyword To Run On Failure" library="SeleniumLibrary">
+<arg>Capture Page Screenshot</arg>
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
+<msg timestamp="20220808 16:51:08.553" level="INFO">Capture Page Screenshot will be run on failure.</msg>
+<status status="PASS" starttime="20220808 16:51:08.553" endtime="20220808 16:51:08.553"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:08.553" endtime="20220808 16:51:08.553"/>
+</kw>
+<if>
+<branch type="IF" condition="${status} == ${True}">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.TOTP_PIN_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220808 16:51:08.553" endtime="20220808 16:51:08.786"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.TOTP_PIN_INPUT}</arg>
+<arg>${pin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:08.787" level="INFO">Typing text '640796' into text field '//input[@id="totpPin"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:08.787" endtime="20220808 16:51:08.897"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE.TOTP_NEXT_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:08.897" level="INFO">Clicking element '//div[@id="totpNext"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:08.897" endtime="20220808 16:51:09.220"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:08.553" endtime="20220808 16:51:09.220"/>
+</branch>
+<status status="PASS" starttime="20220808 16:51:08.553" endtime="20220808 16:51:09.220"/>
+</if>
+<status status="PASS" starttime="20220808 16:51:07.042" endtime="20220808 16:51:09.220"/>
+</kw>
+<kw name="Wait Until It Navigate To Gmail Page" library="gmail_keyword">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.COMPOSE_BUTTON}</arg>
+<arg>timeout=${Timeout}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220808 16:51:09.221" endtime="20220808 16:51:29.221"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:09.221" endtime="20220808 16:51:29.221"/>
+</kw>
+<kw name="Click On Compose Mail Button" library="gmail_keyword">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.COMPOSE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:29.222" level="INFO">Clicking element '//div[@role="navigation"]/div[1]//div[@role="button"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:29.221" endtime="20220808 16:51:31.392"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:29.221" endtime="20220808 16:51:31.393"/>
+</kw>
+<kw name="Wait Until Compose Mail Box Visible" library="gmail_keyword">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.TO_INPUT}</arg>
+<arg>timeout=${Timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220808 16:51:31.393" endtime="20220808 16:51:34.045"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:31.393" endtime="20220808 16:51:34.045"/>
+</kw>
+<kw name="Get Current Time In Miliseconds" library="GmailPage">
+<var>${timestamp}</var>
+<msg timestamp="20220808 16:51:34.045" level="INFO">${timestamp} = 1659952294.045208</msg>
+<status status="PASS" starttime="20220808 16:51:34.045" endtime="20220808 16:51:34.045"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${subject}</var>
+<arg>${COMPOSE_MAIL.SUBJECT} - ${timestamp}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220808 16:51:34.046" level="INFO">${subject} = Test Send Mail Automatic - 1659952294.045208</msg>
+<status status="PASS" starttime="20220808 16:51:34.045" endtime="20220808 16:51:34.046"/>
+</kw>
+<kw name="Enter To Email" library="gmail_keyword">
+<arg>${COMPOSE_MAIL.TO}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.TO_INPUT}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:34.047" level="INFO">Typing text 'vsee.test.mail@gmail.com' into text field '//div[@role="region"]//table[@role="presentation"]//textarea[@name="to"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:34.046" endtime="20220808 16:51:34.422"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:34.046" endtime="20220808 16:51:34.422"/>
+</kw>
+<kw name="Enter Subject" library="gmail_keyword">
+<arg>${subject}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.SUBJECT_INPUT}</arg>
+<arg>${subject}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:34.422" level="INFO">Typing text 'Test Send Mail Automatic - 1659952294.045208' into text field '//div[@role="region"]//table[@role="presentation"]//input[@name="subjectbox"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:34.422" endtime="20220808 16:51:35.478"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:34.422" endtime="20220808 16:51:35.478"/>
+</kw>
+<kw name="Enter Mail Content" library="gmail_keyword">
+<arg>${COMPOSE_MAIL.CONTENT}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.BODY_INPUT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:35.479" level="INFO">Clicking element '//div[@role="region"]//table[@role="presentation"]//div[@role="textbox"]'.</msg>
+<status status="PASS" starttime="20220808 16:51:35.478" endtime="20220808 16:51:35.956"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.BODY_INPUT}</arg>
+<arg>${content}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220808 16:51:35.957" level="INFO">Sending key(s) ('This mail is send from automated software',) to //div[@role="region"]//table[@role="presentation"]//div[@role="textbox"] element.</msg>
+<msg timestamp="20220808 16:51:36.340" level="INFO">Sending keys This mail is send from automated software</msg>
+<status status="PASS" starttime="20220808 16:51:35.956" endtime="20220808 16:51:37.649"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:35.478" endtime="20220808 16:51:37.649"/>
+</kw>
+<kw name="Click Send Button" library="gmail_keyword">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.SEND_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220808 16:51:37.650" level="INFO">Clicking element '//div[@role="region"]//table[@role="group"]//td[1]//div[@role="button"][1]'.</msg>
+<status status="PASS" starttime="20220808 16:51:37.649" endtime="20220808 16:51:38.144"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220808 16:51:41.146" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220808 16:51:38.145" endtime="20220808 16:51:41.146"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:37.649" endtime="20220808 16:51:41.147"/>
+</kw>
+<kw name="Wait Until Compose Mail Box Is Not Visible" library="gmail_keyword">
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${GMAIL_PAGE.TO_INPUT}</arg>
+<arg>timeout=${Timeout}</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20220808 16:51:41.147" endtime="20220808 16:51:41.158"/>
+</kw>
+<status status="PASS" starttime="20220808 16:51:41.147" endtime="20220808 16:51:41.158"/>
+</kw>
+<kw name="Get Latest Sent Mail Info" library="GmailPage">
+<var>${sent_mail}</var>
+<arg>${GMAIL_ACCOUNT.EMAIL}</arg>
+<arg>${GMAIL_ACCOUNT.APP_PASSWORD}</arg>
+<msg timestamp="20220808 16:51:43.521" level="INFO">${sent_mail} = {'FROM': 'vsee sample mail &lt;vsee.test.mail@gmail.com&gt;', 'TO': 'vsee sample mail &lt;vsee.test.mail@gmail.com&gt;', 'SUBJECT': 'Test Send Mail Automatic - 1659952294.045208'}</msg>
+<status status="PASS" starttime="20220808 16:51:41.159" endtime="20220808 16:51:43.521"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${sent_mail["FROM"]}</arg>
+<arg>${GMAIL_ACCOUNT.EMAIL}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220808 16:51:43.522" endtime="20220808 16:51:43.523"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${sent_mail["TO"]}</arg>
+<arg>${COMPOSE_MAIL.TO}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220808 16:51:43.523" endtime="20220808 16:51:43.525"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${sent_mail["SUBJECT"]}</arg>
+<arg>${subject}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220808 16:51:43.525" endtime="20220808 16:51:43.526"/>
+</kw>
+<status status="PASS" starttime="20220808 16:50:57.131" endtime="20220808 16:51:43.527"/>
+</test>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220808 16:51:43.528" endtime="20220808 16:51:43.614"/>
+</kw>
+<status status="PASS" starttime="20220808 16:50:19.958" endtime="20220808 16:51:43.614"/>
+</suite>
+<status status="PASS" starttime="20220808 16:50:19.949" endtime="20220808 16:51:43.615"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Selenium">Selenium</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Gmail">Selenium.Gmail</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

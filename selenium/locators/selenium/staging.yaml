@@ -1,0 +1,18 @@
+HOMEPAGE:
+  LOGIN_BUTTON: //a[@data-action="sign in"]
+LOGIN_PAGE:
+  EMAIL_INPUT: //input[@type="email"]
+  EMAIL_NEXT_BUTTON: //div[@id="identifierNext"]
+  PASSWORD_INPUT: //input[@type="password"]
+  PASSWORD_NEXT_BUTTON: //div[@id="passwordNext"]
+  TOTP_PIN_INPUT: //input[@id="totpPin"]
+  TOTP_NEXT_BUTTON: //div[@id="totpNext"]
+GMAIL_PAGE:
+  COMPOSE_BUTTON: //div[@role="navigation"]/div[1]//div[@role="button"]
+  TO_INPUT: //div[@role="region"]//table[@role="presentation"]//textarea[@name="to"]
+  SUBJECT_INPUT: //div[@role="region"]//table[@role="presentation"]//input[@name="subjectbox"]
+  BODY_INPUT: //div[@role="region"]//table[@role="presentation"]//div[@role="textbox"]
+  SEND_BUTTON: //div[@role="region"]//table[@role="group"]//td[1]//div[@role="button"][1]
+
+
+
